@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Spinner de carregamento (aparece durante o carregamento) -->
+<div *ngIf="isLoading" class="loading-spinner">
+  <i class="fas fa-spinner fa-spin"></i> Carregando...
+</div>
+
+<!-- Conteúdo principal (aparece após o carregamento) -->
+<div *ngIf="!isLoading" class="company-list-container">
+  <div *ngFor="let empresa of empresas" class="company-card" (click)="navigateToMenu(empresa)">
+    <!-- Exibe a imagem da empresa se estiver disponível -->
+    <img *ngIf="empresa.imagemBase64" [src]="'data:image/png;base64,' + empresa.imagemBase64" alt="{{ empresa.nome }}" class="empresa-imagem"/>
+    <h3>{{ empresa.nome }}</h3>
+  </div>
+</div>

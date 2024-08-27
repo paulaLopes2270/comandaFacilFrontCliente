@@ -1,0 +1,81 @@
+.header-container {
+  position: relative;
+  width: 100%;
+  min-height: 325px;
+  overflow: hidden;
+  font-family: 'TAN Tangkiwood';
+  border-bottom: 1px solid rgb(5, 160, 5);
+  background-image: url('/assets/header.jpg');
+  background-size: 100% 100%;
+  background-position: center; 
+  background-repeat: no-repeat;
+  margin-bottom: 2px;
+}
+
+.header-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header-container nav {
+  position: absolute;
+  bottom: 10px;
+  left: 23.4%;
+  border-radius: 5px;
+  padding: 5px 10px;
+  z-index: 1;
+}
+
+.nav {
+  padding: 0;
+  margin: 0;
+  margin-top: 0;
+}
+
+.header-container nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.header-container nav ul li {
+  display: inline;
+}
+
+.header-container nav ul li a {
+  text-decoration: none;
+  color: rgb(0, 120, 32);
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.header-container nav ul li a:hover {
+  background-color: rgba(98, 214, 112, 0.2);
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    min-height: 200px;
+  }
+
+  .header-container nav ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .header-container nav {
+    bottom: 5px;
+    padding: 5px;
+  }
+
+  .header-container nav ul li a {
+    padding: 5px 5px;
+  }
+}

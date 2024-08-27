@@ -1,0 +1,10 @@
+<div id="header" class="header-container">
+  <nav>
+    <ul>
+      <li><a routerLink="/home">Página Inicial</a></li>
+      <li *ngIf="isAuthenticated"><a routerLink="/minhas-reservas">Minhas Reservas</a></li>
+      <li *ngIf="!isAuthenticated"><a href="javascript:void(0)" (click)="login()">Login</a></li>
+      <li *ngIf="isAuthenticated"><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+</div>

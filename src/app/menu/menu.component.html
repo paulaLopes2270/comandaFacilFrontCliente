@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Spinner de carregamento (aparece durante o carregamento) -->
+<div *ngIf="loading" class="loading-spinner">
+  <i class="fas fa-spinner fa-spin"></i> Carregando...
+</div>
+
+<!-- Conteúdo principal (aparece após o carregamento) -->
+<div *ngIf="!loading">
+  <div class="menu-list-container">
+    <h1>Menu da Empresa</h1>
+
+    <!-- Exibindo os detalhes da empresa com opção de ver mais -->
+    <div class="empresa-details">
+      <p><strong>Nome:</strong> {{ empresa.nome }}</p>
+      <a (click)="toggleInfo()" class="info-link">
+        <i class="fas fa-info-circle"></i> Mais Informações
+      </a>
+      
+      <!-- Informações adicionais da empresa, visíveis ao clicar no link -->
+      <div *ngIf="showInfo" class="additional-info">
+        <p><strong>Endereço:</strong> {{ empresa.endereco }}</p>
+        <p><strong>E-mail:</strong> {{ empresa.email }}</p>
+        <p><strong>Telefone:</strong> {{ empresa.telefone }}</p>
+      </div>
+    </div>
+
+    <!-- Container para o botão de reserva -->
+    <div class="reserva-container">
+      <button (click)="fazerReserva()" class="reserva-button">Fazer Reserva</button>
+    </div>
+
+    <!-- Verificação explícita no template -->
+    <div *ngIf="menus.length > 0; else noItems">
+      <div *ngFor="let categoria of getCategorias()" class="categoria-section">
+        <h2>{{ categoria }}</h2>
+        <div *ngFor="let menu of getMenuByCategoria(categoria)" class="menu-item">
+          <div class="menu-details">
+            <h3>{{ menu.nome }}</h3>
+            <p>{{ menu.descricao }}</p>
+            <p>Preço: R$ {{ menu.preco }}</p>
+          </div>
+          <div class="menu-image">
+            <img *ngIf="menu.imagemBase64" [src]="'data:image/png;base64,' + menu.imagemBase64" alt="{{ menu.nome }}" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noItems>
+      <div>Nenhum item encontrado.</div>
+    </ng-template>
+  </div>
+</div>

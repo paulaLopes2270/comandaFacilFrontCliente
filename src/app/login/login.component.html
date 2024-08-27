@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="logo">
+    <img src="assets/logocomandafacil.jpg" alt="ComandaFácil Logo">
+  </div>
+  <main>
+    <section>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Usuário:</label>
+          <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Senha:</label>
+          <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <button class="form-group button" type="submit">Entrar</button>
+        </div>
+      </form>
+      <!-- Link para cadastro de novo usuário -->
+      <div class="register-link">
+        <p>Não tem uma conta? <a [routerLink]="['/register-user']">Cadastre-se aqui</a></p>
+      </div>
+    </section>
+  </main>
+</div>

@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Spinner de carregamento (aparece durante o loading) -->
+<div *ngIf="isLoading" class="loading-spinner">
+  <i class="fas fa-spinner fa-spin"></i> Carregando...
+</div>
+
+<!-- Conteúdo principal da lista de mesas (aparece somente após o carregamento) -->
+<div *ngIf="!isLoading">
+  <div *ngIf="mesas$ | async as mesas; else noMesas">
+    <div class="mesas-container">
+      <div *ngFor="let mesa of mesas" class="mesa-card">
+        <div class="mesa-title">Mesa {{ mesa.numero }} ({{ mesa.area }})</div>
+        <div class="mesa-info">Capacidade: {{ mesa.capacidade }}</div>
+        <div class="mesa-status" [ngClass]="mesa.ocupadaManualmente ? 'ocupada' : 'livre'">
+          {{ mesa.ocupadaManualmente ? 'Ocupada' : 'Livre' }}
+        </div>
+        <button class="selecionar-btn" (click)="selecionarMesa(mesa)">Selecionar essa mesa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mensagem de erro ou caso não haja mesas -->
+<ng-template #noMesas>
+  <p>Nenhuma mesa encontrada.</p>
+</ng-template>

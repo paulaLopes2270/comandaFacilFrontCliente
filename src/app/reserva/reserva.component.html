@@ -1,0 +1,61 @@
+<div *ngIf="isLoading" class="loading-spinner">
+  <i class="fas fa-spinner fa-spin"></i> Carregando...
+</div>
+
+<div *ngIf="!isLoading">
+  <div class="reserva-container">
+    <h2>Faça sua Reserva</h2>
+
+    <!-- Exibe uma mensagem de erro geral -->
+    <div *ngIf="formErrors.general" class="error-message">
+      {{ formErrors.general }}
+    </div>
+
+    <form (ngSubmit)="fazerReserva()">
+      <div class="form-group">
+        <label for="mesa">Mesa Selecionada</label>
+        <input type="text" id="mesa" [value]="'Mesa ' + mesaNumero" readonly disabled class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="numeroPessoas">Número de Pessoas</label>
+        <input 
+          type="number" 
+          id="numeroPessoas" 
+          [(ngModel)]="reserva.numeroPessoas" 
+          name="numeroPessoas" 
+          required 
+          class="form-control"
+          (blur)="validarNumeroPessoas()"
+          [min]="minPessoas" 
+          [max]="reserva.capacidadeMaxima"
+        />
+        <div *ngIf="formErrors.numeroPessoas" class="error-message">
+          {{ formErrors.numeroPessoas }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dataHora">Data e Hora</label>
+        <input 
+          type="datetime-local" 
+          id="dataHora" 
+          [(ngModel)]="reserva.dataHora" 
+          name="dataHora" 
+          required 
+          class="form-control"
+          [min]="formatDateToInputValue(minDate)" 
+          [max]="formatDateToInputValue(maxDate)"
+          (blur)="validarDataHora()"
+          (focus)="abrirCalendario($event)" 
+          onkeydown="return false;"
+        />
+        <div *ngIf="formErrors.dataHora" class="error-message">
+          {{ formErrors.dataHora }}
+        </div>
+      </div>
+
+      <button type="submit" class="btn-reserva" [disabled]="isSubmitting">Reservar Mesa</button>
+    </form>
+  </div>
+</div>

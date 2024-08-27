@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Spinner de carregamento -->
+<div *ngIf="isLoading" class="loading-spinner">
+  <i class="fas fa-spinner fa-spin"></i> Carregando...
+</div>
+
+<!-- Lista de reservas (só aparece quando o carregamento termina e há reservas) -->
+<div *ngIf="!isLoading && reservas.length > 0; else noReservas" class="reservas-container">
+  <div *ngFor="let reserva of reservas" 
+       [ngClass]="{'reserva-passada': isReservaPassada(reserva.dataHora)}"
+       class="reserva-card">
+    <p><strong>Empresa:</strong> {{ reserva.empresa.nome }}</p>
+    <p><strong>Endereço:</strong> {{ reserva.empresa.endereco }}</p>
+    <p><strong>Mesa:</strong> {{ reserva.mesa.numero }}</p>
+    <p><strong>Data e Hora:</strong> {{ reserva.dataHora | date: 'dd/MM/yyyy HH:mm' }}</p>
+    <p><strong>Número de Pessoas:</strong> {{ reserva.numeroPessoas }}</p>
+    <button 
+      (click)="cancelarReserva(reserva.id)" 
+      class="cancelar-button" 
+      [disabled]="isCancelling || isReservaPassada(reserva.dataHora)">
+      Cancelar Reserva
+    </button>
+  </div>
+</div>
+
+<!-- Mensagem de "Nenhuma reserva encontrada" (aparece somente se não houver reservas e o carregamento terminar) -->
+<ng-template #noReservas>
+  <div *ngIf="!isLoading" class="nenhuma-reserva">
+    <p>Nenhuma reserva encontrada.</p>
+  </div>
+</ng-template>
