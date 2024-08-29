@@ -89,17 +89,77 @@ O arquivo `environment.ts` configura a URL base da API e outras configurações 
 
 ![image](https://github.com/user-attachments/assets/2a496bd3-0781-464f-9866-57127f2f8caf)
 
+
+
+-
+
+
+
+
 ![image](https://github.com/user-attachments/assets/b2fac55c-6892-4950-ac96-d58882978df3)
+
+
+
+-
+
+
+-
 
 ![image](https://github.com/user-attachments/assets/2426b37b-3b3d-47f6-8d2b-fdcdada16273)
 
+
+
+-
+
+
+-
+
 ![image](https://github.com/user-attachments/assets/cbfbc67f-57a2-4dc5-88d4-a4f74f75cad2)
+
+
+
+
+-
+
+
+
+-
 
 ![image](https://github.com/user-attachments/assets/7c3b0005-345c-4f71-afdb-ce9c05c591b2)
 
+
+
+
+
+-
+
+
+
+-
+
 ![image](https://github.com/user-attachments/assets/f299e796-8d45-444c-9752-bc5a2d2da954)
 
+
+
+
+
+-
+
+
+
+-
+
 ![image](https://github.com/user-attachments/assets/31d1b219-528f-44be-b0c6-06c0403d2c83)
+
+
+
+
+
+-
+
+
+
+-
 
 ![image](https://github.com/user-attachments/assets/c9327afa-173e-49e7-804e-71e8a6321059)
 
