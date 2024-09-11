@@ -1,6 +1,6 @@
 # Sistema de Reservas de Mesas
 
-Este projeto é uma aplicação Angular para gerenciamento de reservas de mesas em um restaurante. Permite aos usuários fazer novas reservas, visualizar suas reservas existentes e cancelar reservas. A aplicação inclui funcionalidades de autenticação e gerenciamento de cache para otimizar as requisições.
+Este projeto é uma aplicação Angular para gerenciamento de reservas de mesas em um restaurante. Permite aos usuários visualizar as empresas e seus cardápios, fazer novas reservas, visualizar suas reservas existentes e cancelar reservas. A aplicação inclui funcionalidades de autenticação e gerenciamento de cache para otimizar as requisições.
 
 ## Sumário
 
